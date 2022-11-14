@@ -7,15 +7,22 @@ The goal of this assignment is to write a python code such that the robot will f
 
 ![Final configuration](screenshot_fine.png)
 
+Running the code
+---------------------------
+
+The simulator requires a Python 2.7 installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
+
+Once the dependencies are installed, simply run the `assignment1.py` script to test out the simulator by writing the following line in the terminal: `python2 run.py assigment1.py`.
+
 Flowchart
 ---------------------------
 
 The code that I wrote uses one while loop that keeps iterating until all six golden tokens are paired to every silver one, to differentiate between silver and golden tokens I used the boolean variable "silver" that changes its value based on the token I want the robot to search for.
- the robot will turn until it finds a token that isn't already paired, then the robot will align with it and aproach it, then, based on the colour of the token, the robot, will either grab it, register its code in the list silver_token (used to distinguish the silver boxes that are already paired from the ones that aren't) and move it near a golden one, or release it, register the code of the golden token in the list golden_token
-To command the robot I used one while loop that keeps iterating until the list that collects the golden tokens paired is filled with all of the golden tokens, to diffentiate between silver and golden tokens is used a boolean variable that changes value based on the token I want the robot to search(??????????); the code can be described with the following flowchart:
+The robot will turn until it finds a silver token that isn't already paired, align with it, approach it, grab it and then move it until it reaches an unpaired golden token and releases the silver box next to it; this process will be repeated until each silver token is paired with a golden one, as described in the following flowchart:
 
 ![Code flowchart](FlowChartAssignment1.png)
 
-how to run the code:?
+Possible improvements
+---------------------------
 
-possible improvements: make a code that can adapt to every situation: avoid tokens in the way between the silver and the golden one, find a way to make it stopa after pairing every token, not based on the lenght of a list... (magari fargli scannerizzare tutta l'arena all'inizio, registrare il numero di siler e golden token, salvarlo su una variabile e farlo fermare dopo che la lista ha raggiunto quel numero
+To make the code as general as possible we could adapt it with the porpouse of making it able to detect the other tokens in its way, after grabbing a silver token, and make it able to avoid them by changing direction. We could also improve the code by giving it the ability to detect the total number of token in the arena and making the robot stop only after pairing each one of them, instead of making it stop after paring the twelve tokens present in this assignment.
