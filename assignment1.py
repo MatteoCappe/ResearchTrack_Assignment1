@@ -14,8 +14,8 @@ silver = True;
 R = Robot()
 """ Instance of the Class Robot """
 
-golden_token = [] #This will keep track of the silver token that will be moved
-silver_token = [] #This will keep track of the golden token that are already paired
+silver_token = [] #This will keep track of the silver token that are already paired
+golden_token = [] #This will keep track of the golden token that are already paired
 
 def drive(speed, seconds):
     """
@@ -62,10 +62,10 @@ def find_silver_token():
             for i in silver_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-            else: #If it isn't already paired: update distance, rotation and code
-                dist=token.dist
-	        rot_y=token.rot_y
-	        code = token.info.code
+        	else: #If it isn't already paired: update distance, rotation and code
+            	    dist=token.dist
+	    	    rot_y=token.rot_y
+	    	    code = token.info.code
 	        
     if dist==100:
 	return -1, -1, -1
@@ -89,10 +89,10 @@ def find_golden_token():
             for i in golden_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-            else: #If it isn't already paired: update distance, rotation and code 
-                code = token.info.code
-                dist=token.dist
-	        rot_y=token.rot_y
+            	else: #If it isn't already paired: update distance, rotation and code 
+                    code = token.info.code
+                    dist=token.dist
+	            rot_y=token.rot_y
 	    
     if dist==100:
 	return -1, -1, -1
