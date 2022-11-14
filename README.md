@@ -14,4 +14,6 @@ To command the robot I used one while loop that keeps iterating until the list t
 
 ![Code flowchart](FlowChartAssignment1.png)
 
+how to run the code:?
+
 possible improvements: make a code that can adapt to every situation: avoid tokens in the way between the silver and the golden one, find a way to make it stopa after pairing every token, not based on the lenght of a list... (magari fargli scannerizzare tutta l'arena all'inizio, registrare il numero di siler e golden token, salvarlo su una variabile e farlo fermare dopo che la lista ha raggiunto quel numero
