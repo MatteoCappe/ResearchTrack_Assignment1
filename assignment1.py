@@ -62,7 +62,7 @@ def find_silver_token():
             for i in silver_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-            else: #If it isn't paired update distance, rotation and code
+            else: #If it isn't already paired: update distance, rotation and code
                 dist=token.dist
 	        rot_y=token.rot_y
 	        code = token.info.code
@@ -89,7 +89,7 @@ def find_golden_token():
             for i in golden_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-            else: #If it isn't paired, update distance, rotation and code 
+            else: #If it isn't already paired: update distance, rotation and code 
                 code = token.info.code
                 dist=token.dist
 	        rot_y=token.rot_y
