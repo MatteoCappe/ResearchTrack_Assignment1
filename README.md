@@ -19,7 +19,7 @@ Once the dependencies are installed, simply run the `assignment1.py` script to t
 Flowchart
 ---------------------------
 
-The code that I wrote uses one while loop that keeps iterating until all six golden tokens are paired to every silver one, to differentiate between silver and golden tokens I used the boolean variable "silver" that changes its value based on the token I want the robot to search for.
+The code that I wrote uses one while loop that keeps iterating until all six golden tokens are paired to every silver one, to differentiate between silver and golden tokens I used the boolean variable `silver` that changes its value based on the token I want the robot to search for.
 The robot will turn until it finds a silver token that isn't already paired, align with it, approach it, grab it and then move it until it reaches an unpaired golden token and releases the silver box next to it; this process will be repeated until each silver token is paired with a golden one, as described in the following flowchart:
 
 ![Code flowchart](FlowChartAssignment1.png)
