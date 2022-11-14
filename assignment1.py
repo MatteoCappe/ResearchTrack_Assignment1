@@ -103,7 +103,7 @@ def find_golden_token():
 
 while len(golden_token) < 6: #the iterations will stop when every token is paired
 
-	#The robot will search for a silver token, after grabbing it, it will seacrh for a golden one to complete the pair, this process will be repeated until every token is paired
+	#The robot will search for a silver token, after grabbing it, it will search for a golden one to complete the pair, this process will be repeated until every token is paired
 	if silver == True:
 	
 		dist, rot_y, code_silver = find_silver_token()
@@ -112,7 +112,7 @@ while len(golden_token) < 6: #the iterations will stop when every token is paire
 	
 		dist, rot_y, code_golden = find_golden_token()       
    
-	if dist == -1: # If no token is detected, the robot will turn to search for another one 
+	if dist == -1: # If no token is detected, the robot will turn, searching for another one 
        
            print("I don't see any token!!")
            
@@ -127,13 +127,13 @@ while len(golden_token) < 6: #the iterations will stop when every token is paire
 			print("Gotcha!!")
 			
 			#The robot gets the code for the silver token it just grabbed
-	       	dist, rot_y, code_silver = find_silver_token()
+	       		dist, rot_y, code_silver = find_silver_token()
 	       	
-	       	#This code will be saved in a list, to ditinguish the ones that are already paired from the ones that aren't
-	       	silver_token.append(code_silver)
+	       		#This code will be saved in a list, to distinguish the ones that are already paired from the ones that aren't
+	       		silver_token.append(code_silver)
 	       	
-	       	#We change the value of the variable "silver", so that the robot will search for a golden token in the next iteration
-	       	silver = False
+	       		#We change the value of the variable "silver", so that the robot will search for a golden token in the next iteration
+	       		silver = False
 	
 	elif dist < 1.5*d_th and silver == False: #If it is close to a golden token it releases the silver token that it grabbed in the previous iteration
 	
@@ -146,7 +146,7 @@ while len(golden_token) < 6: #the iterations will stop when every token is paire
 			#The robot gets the code for the golden token it just paired
 			dist, rot_y, code_golden = find_golden_token()
 			
-			#This code will be saved in a list, to ditinguish the ones that are already paired from the ones that aren't
+			#This code will be saved in a list, to distinguish the ones that are already paired from the ones that aren't
 			golden_token.append(code_golden)
 			
 			#We change the value of the variable "silver", so that the robot will search for a silver token in the next iteration
@@ -165,7 +165,7 @@ while len(golden_token) < 6: #the iterations will stop when every token is paire
    	   
    	   turn(+2, 0.5)
    	   
-	elif -a_th <= rot_y <= a_th: #If the robot is well-aligned it will go for the token
+	elif -a_th <= rot_y <= a_th: #If the robot is well aligned it will approach the token
            
            print("Ah here we are")
            
