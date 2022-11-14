@@ -5,7 +5,7 @@ Student: Matteo Cappellini (4822622)
 Goal of the assignment
 ---------------------------
 
-The goal of this assignment is to write a python code such that the robot will firstly search for a silver token in the enviroment, grab it and then put it near a golden one, such that at the end we will see every silver token paired to a golden one, as follows:
+The goal of this assignment is to write a python code, such that the robot will firstly search for a silver token in the enviroment, grab it and then put it near a golden one, such that at the end we will see every silver token paired to a golden one, as follows:
 
 ![Final configuration](screenshot_fine.png)
 
@@ -27,4 +27,4 @@ The robot will turn until it finds a silver token that isn't already paired, ali
 Possible improvements
 ---------------------------
 
-To make the code as general as possible we could adapt it with the porpouse of making it able to detect the other tokens in its way, after grabbing a silver token, and make it able to avoid them by changing direction. We could also improve the code by giving it the ability to detect the total number of token in the arena and making the robot stop only after pairing each one of them, instead of making it stop after paring the twelve tokens present in this assignment.
+To make the code as general as possible we could adapt it with the porpouse of making it able to detect the other tokens in its way, after grabbing a silver box, and make it able to avoid them by changing direction. We could also improve the code by giving it the ability to detect the total number of token in the arena at the start and making the robot stop only after pairing each one of them, instead of making it stop after paring the twelve tokens present in this assignment.
