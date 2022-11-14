@@ -1,5 +1,7 @@
 # ResearchTrack_Assignment1
 
+Student: Matteo Cappellini (4822622)
+
 Goal of the assignment
 ---------------------------
 
