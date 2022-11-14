@@ -10,6 +10,6 @@ The goal of this assignment is to write a python code such that the robot will f
 Flowchart
 ---------------------------
 
-The code can be described with the following flowchart
+To command the robot I used one while loop that keeps iterating until the list that collects the golden tokens paired is filled with all of the golden tokens, to diffentiate between silver and golden tokens is used a boolean variable that changes value based on the token I want the robot to search(??????????); the code can be described with the following flowchart:
 
 ![Code flowchart](FlowChartAssignment1.png)
