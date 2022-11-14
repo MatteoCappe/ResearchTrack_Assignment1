@@ -48,7 +48,6 @@ def turn(speed, seconds):
 def find_silver_token():
     """
     Function to find the closest SILVER token
-
     Returns:
 	dist (float): distance of the closest silver token (-1 if no silver token is detected)
 	rot_y (float): angle between the robot and the silver token (-1 if no silver token is detected)
@@ -62,10 +61,10 @@ def find_silver_token():
             for i in silver_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-        	else: #If it isn't already paired: update distance, rotation and code
-            	    dist=token.dist
-	    	    rot_y=token.rot_y
-	    	    code = token.info.code
+            else: #If it isn't already paired: update distance, rotation and code
+                dist=token.dist
+	        rot_y=token.rot_y
+	        code = token.info.code
 	        
     if dist==100:
 	return -1, -1, -1
@@ -75,7 +74,6 @@ def find_silver_token():
 def find_golden_token():
     """
     Function to find the closest GOLDEN token
-
     Returns:
 	dist (float): distance of the closest golden token (-1 if no golden token is detected)
 	rot_y (float): angle between the robot and the golden token (-1 if no golden token is detected)
@@ -89,25 +87,25 @@ def find_golden_token():
             for i in golden_token: #Check that the token isn't already paired
                 if i == token.info.code:
                     break
-            	else: #If it isn't already paired: update distance, rotation and code 
-                    code = token.info.code
-                    dist=token.dist
-	            rot_y=token.rot_y
-	    
+            else: #If it isn't already paired: update distance, rotation and code
+                code = token.info.code
+                dist=token.dist
+	        rot_y=token.rot_y
+	        
     if dist==100:
 	return -1, -1, -1
     else:
    	return dist, rot_y, code
+   	
+#ROBOT OPERATIONAL LOOP  
   
-#ROBOT OPERATIONAL LOOP
-
-while len(golden_token) < 6: #the iterations will stop when every token is paired
+while len(golden_token)<6: #the iterations will stop when every token is paired
 
 	#The robot will search for a silver token, after grabbing it, it will search for a golden one to complete the pair, this process will be repeated until every token is paired
 	if silver == True:
 	
 		dist, rot_y, code_silver = find_silver_token()
-		
+	
 	else:
 	
 		dist, rot_y, code_golden = find_golden_token()       
@@ -115,59 +113,60 @@ while len(golden_token) < 6: #the iterations will stop when every token is paire
 	if dist == -1: # If no token is detected, the robot will turn, searching for another one 
        
            print("I don't see any token!!")
-           
+
 	   turn(-10, 1)
 	   
-	elif dist < d_th and silver == True: #If it is close to a silver token it grabs it
+	elif dist < d_th and silver == True:  # If it is close to the token it grabs it
 	
 		print("Found it!!")
-		
+
 	   	if R.grab():
-	   	
+
 			print("Gotcha!!")
-			
+
 			#The robot gets the code for the silver token it just grabbed
-	       		dist, rot_y, code_silver = find_silver_token()
-	       	
-	       		#This code will be saved in a list, to distinguish the ones that are already paired from the ones that aren't
-	       		silver_token.append(code_silver)
-	       	
-	       		#We change the value of the variable "silver", so that the robot will search for a golden token in the next iteration
-	       		silver = False
+	       	dist, rot_y, code_silver = find_silver_token()
+
+	       	#This code will be saved in a list, to distinguish the ones that are already paired from the ones that aren't
+	       	silver_token.append(code_silver)
+
+	       	#We change the value of the variable "silver", so that the robot will search for a golden token in the next iteration
+	       	silver = False
 	
 	elif dist < 1.5*d_th and silver == False: #If it is close to a golden token it releases the silver token that it grabbed in the previous iteration
 	
 		print("Found it!!")
 
 		if R.release():
-		
+
 			print("Paired!!")
-		
+
 			#The robot gets the code for the golden token it just paired
 			dist, rot_y, code_golden = find_golden_token()
-			
+
 			#This code will be saved in a list, to distinguish the ones that are already paired from the ones that aren't
 			golden_token.append(code_golden)
-			
+
 			#We change the value of the variable "silver", so that the robot will search for a silver token in the next iteration
 			silver = True
-			
+
 			#Before starting the next iteration the robot drives back a little bit
 			drive(-50,2)
 	   
-	elif rot_y < -a_th: #If the robot is not well aligned with the token, it will move on the left to adjust itself
+	elif rot_y < -a_th: #If the robot is not well aligned with the token, it will move to the left to adjust itself
+         
            print("Left a bit...")
-           
+     	 
      	   turn(-2, 0.5)
      	   
-	elif rot_y > a_th: #If the robot is not well aligned with the token, it will move on the right to adjust itself
+	elif rot_y > a_th: #If the robot is not well aligned with the token, it will move to the right to adjust itself
+   	 
    	   print("Right a bit..")
-   	   
+   	 
    	   turn(+2, 0.5)
    	   
 	elif -a_th <= rot_y <= a_th: #If the robot is well aligned it will approach the token
-           
+         
            print("Ah here we are")
-           
+	 
 	   drive(10, 2)        
-
