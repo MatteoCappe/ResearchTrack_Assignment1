@@ -3,6 +3,7 @@ from __future__ import print_function
 import time
 from sr.robot import *
 
+start = time.time()
 
 a_th = 2.0 #Threshold for the control of the orientation
 
@@ -99,7 +100,7 @@ def find_golden_token():
    	
 #ROBOT OPERATIONAL LOOP  
   
-while len(golden_token)<6: #the iterations will stop when every token is paired
+while len(golden_token)<10: #the iterations will stop when every token is paired
 
 	#The robot will search for a silver token, after grabbing it, it will search for a golden one to complete the pair, this process will be repeated until every token is paired
 	if silver == True:
@@ -169,4 +170,8 @@ while len(golden_token)<6: #the iterations will stop when every token is paired
          
            print("Ah here we are")
 	 
-	   drive(10, 2)        
+	   drive(30, 0.3)        
+	 
+end = time.time()
+elapsed_time = end - start
+print("Time: ", elapsed_time)
