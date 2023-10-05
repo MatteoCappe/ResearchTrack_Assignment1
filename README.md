@@ -14,7 +14,7 @@ Running the code
 
 The simulator requires a Python 2.7 installation, the [pygame](http://pygame.org/) library, [PyPyBox2D](https://pypi.python.org/pypi/pypybox2d/2.1-r331), and [PyYAML](https://pypi.python.org/pypi/PyYAML/).
 
-Once the dependencies are installed, simply run the `assignment1.py` script to test out the simulator by writing the following line in the terminal: `python2 run.py assigment1.py`.
+Once the dependencies are installed, simply run the `assignment1.py` script to test out the simulator by writing the following line in the terminal: `python2 run.py assignment1.py`.
 
 Flowchart
 ---------------------------
